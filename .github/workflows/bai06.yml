@@ -1,0 +1,26 @@
+name: Bai 06 - Optimization & Caching
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        # Chuẩn bị cho Bước 2: Bạn sẽ thêm dòng cache: 'maven' vào ngay phía dưới dòng này!
+        
+    - name: Build Project
+      # Chạy clean package trên thư mục Bai03 vì nó có nhiều thư viện nặng (JUnit, SLF4J, Logback)
+      run: mvn -B clean package
+      working-directory: ./Bai03
