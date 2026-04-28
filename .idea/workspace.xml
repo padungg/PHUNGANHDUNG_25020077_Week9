@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82cb3fcb-8aa1-45b0-a587-f276ef2a247c" name="Changes" comment="" />
+    <list default="true" id="82cb3fcb-8aa1-45b0-a587-f276ef2a247c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai08/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Bai08/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai08/src/main/java/com/fashionstore/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai08/target/classes/com/fashionstore/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai09/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Bai09/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai09/src/main/java/com/fashionstore/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai09/target/classes/com/fashionstore/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai10/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Bai10/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,15 +51,19 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.App.executor": "Run",
     "Maven.Bai02 [clean].executor": "Run",
     "Maven.Bai02 [org.apache.maven.plugins:maven-checkstyle-plugin:3.3.0:check].executor": "Run",
     "Maven.Bai02 [org.apache.maven.plugins:maven-site-plugin:3.12.1:site].executor": "Run",
     "Maven.Bai02 [test].executor": "Run",
+    "Maven.Bai08 [clean].executor": "Run",
+    "Maven.Bai08 [package].executor": "Run",
+    "Maven.Bai09 [test].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature-bad-code",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/LENOVO/Downloads/HK2/LTNC/BTLTNC/PHUNGANHDUNG_25020077_Week9",
     "node.js.detected.package.eslint": "true",
@@ -99,7 +112,7 @@
       <workItem from="1777310279859" duration="2866000" />
       <workItem from="1777314267812" duration="358000" />
       <workItem from="1777314650682" duration="642000" />
-      <workItem from="1777362124541" duration="9422000" />
+      <workItem from="1777362124541" duration="13701000" />
     </task>
     <servers />
   </component>
