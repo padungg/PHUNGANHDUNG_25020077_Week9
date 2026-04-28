@@ -26,7 +26,7 @@ public class OrderProcessor {
 
         // Simulate payment processing
         logger.debug("Processing payment for Order ID: {} with amount: {}", order.getId(), order.getAmount());
-        order.setPaid(false);
+        order.setPaid(true);
         logger.info("Successfully processed Order ID: {}", order.getId());
 
         return true;
