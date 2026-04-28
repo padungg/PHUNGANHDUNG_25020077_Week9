@@ -18,7 +18,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        # Chuẩn bị cho Bước 2: Bạn sẽ thêm dòng cache: 'maven' vào ngay phía dưới dòng này!
+        cache: 'maven'
         
     - name: Build Project
       # Chạy clean package trên thư mục Bai03 vì nó có nhiều thư viện nặng (JUnit, SLF4J, Logback)
