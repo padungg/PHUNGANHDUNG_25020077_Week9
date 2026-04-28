@@ -24,8 +24,8 @@ public class ShippingCalculatorTest {
     // Cố tình tạo lỗi
     @Test
     void testNullType() {
-        // Cố tình truyền chữ null vào tham số type để hệ thống sập
-        calc.calculate(5, null);
+        assertThrows(IllegalArgumentException.class,
+            () -> calc.calculate(5, null));
     }
 
 }
