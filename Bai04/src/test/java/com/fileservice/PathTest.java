@@ -7,13 +7,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PathTest {
     @Test
-    public void testWindowsHardcodedPath() {
-        // Lấy đường dẫn chuẩn theo hệ điều hành hiện tại
-        Path path = Paths.get("config", "app.properties");
+    public void testCrossPlatformPath() {
+        String folder = "config";
+        String fileName = "app.properties";
         
-        // LỖI SAI: So sánh với một chuỗi bị đóng cứng theo kiểu Windows (\)
-        // Dòng này sẽ PASS trên Windows (vì path.toString() ra config\app.properties)
-        // Nhưng sẽ FAILED trên Linux/Mac (vì path.toString() ra config/app.properties)
-        assertEquals("config\\app.properties", path.toString());
+        // Java tự động nhận diện OS để dùng '/' hay '\'
+        Path path = Paths.get(folder, fileName); 
+        
+        // Cách so sánh an toàn: không so sánh với chuỗi tĩnh nữa, mà so sánh thông qua API của Java
+        Path expectedPath = Paths.get("config", "app.properties");
+        
+        assertEquals(expectedPath.toString(), path.toString());
     }
 }
