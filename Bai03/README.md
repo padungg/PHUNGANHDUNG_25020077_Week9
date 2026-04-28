@@ -82,22 +82,34 @@ Trong bài tập này, lệnh `mvn clean package` sẽ dọn dẹp thư mục `t
      - Chạy lệnh Maven Build: `run: mvn -B clean package` với thư mục làm việc (working-directory) trỏ vào `./Bai03`.
      - Tải file JAR tạo ra lên mục Artifact: sử dụng `actions/upload-artifact`.
 
-### Bước 5: Kiểm thử sự tự động hóa (Debug lỗi qua Execution Logs)
-Yêu cầu của đề bài là bắt buộc bạn phải biết cách đọc log trên GitHub Actions để tìm lỗi. Cách thức thực hiện như sau:
+### Bước 5: Hướng dẫn chi tiết cách chạy GitHub Actions và Kiểm thử lỗi CI
 
-1. **Gây lỗi cố ý:** 
-   Bạn vào `OrderProcessor.java`, thay đổi một logic đang chạy đúng thành sai. 
-   *Ví dụ:* `order.setPaid(true);` sửa thành `order.setPaid(false);`.
-2. **Push code:**
-   Thực hiện các lệnh `git add .`, `git commit -m "Test failed build"`, và `git push`.
-3. **Phân tích lỗi trên GitHub:**
-   - Mở Repo GitHub trên trình duyệt, chuyển sang tab **Actions**.
-   - Bạn sẽ thấy Workflow chạy và bị "Failed" (Dấu X màu đỏ).
-   - Bấm vào chi tiết của job đó, mở rộng log của step **"Build with Maven"**.
-   - Bạn sẽ thấy log báo lỗi Maven bắt nguồn từ **JUnit test**, thông báo rõ hàm test nào bị rớt (ví dụ: *expected: true but was: false* ở dòng số bao nhiêu).
-4. **Sửa lỗi:**
-   - Quay lại code, trả về trạng thái `true` ban đầu.
-   - Commit và push lại. Lúc này GitHub Action sẽ chạy qua tất cả và có màu xanh lá (Passed), đồng thời tạo ra file Artifact ở dưới cùng trang chi tiết build.
+Mục đích của CI (Continuous Integration) là tự động chạy toàn bộ bài Test (Unit Test) mỗi khi có người đẩy (push) code mới lên hệ thống. Nếu có bất kỳ đoạn code nào vi phạm logic, CI sẽ "báo đỏ" để ngăn chặn code hỏng được tích hợp. Để chứng minh điều này hoạt động, chúng ta sẽ thao tác như sau:
+
+#### 5.1. Xem tiến trình CI chạy thành công (Xanh lá)
+Mỗi khi bạn gõ lệnh `git push -u origin main` (hoặc `git push`), GitHub Actions sẽ tự động kích hoạt tiến trình dựa trên file cấu hình `.github/workflows/ci.yml`.
+1. Mở trang web GitHub chứa Repository của bạn.
+2. Nhấn vào tab **Actions** ở menu ngang trên cùng.
+3. Bạn sẽ thấy một tiến trình (Workflow run) mang tên commit của bạn đang chạy. Khi mã nguồn hoàn hảo, tiến trình sẽ hoàn tất với dấu check màu **Xanh lá (Passed)**. 
+4. Bấm vào tiến trình đó, cuộn xuống dưới cùng, bạn sẽ thấy file JAR đã được hệ thống tự động đóng gói (`Bai03-jar.zip`) nằm ở mục Artifacts sẵn sàng tải về.
+
+#### 5.2. Cố tình gây lỗi để kiểm chứng hệ thống phòng vệ CI (Báo Đỏ)
+Để hiểu rõ vai trò "người gác cổng" của CI, ta sẽ cố tình phá hỏng logic của chương trình:
+1. **Sửa code sai logic:** Mở file `OrderProcessor.java`. Tìm đến dòng mô phỏng thanh toán thành công `order.setPaid(true);` và đổi nó thành `order.setPaid(false);`.
+   - 💡 **Giải thích tại sao làm vậy:** Trong file test `OrderProcessorTest.java`, chúng ta có viết một hàm kiểm tra: `assertTrue(order.isPaid())`. Nghĩa là bài test **kỳ vọng** đơn hàng sau khi xử lý phải chuyển sang trạng thái "đã thanh toán" (`true`). Khi ta đổi code nghiệp vụ thành `false`, kết quả trả về sẽ không khớp với kỳ vọng của bài Test, dẫn đến Test thất bại.
+2. **Đẩy đoạn code bị lỗi lên mạng:**
+   Mở Terminal và gõ lần lượt 3 lệnh:
+   - `git add .`
+   - `git commit -m "Co tinh tao loi de kiem thu CI"`
+   - `git push`
+3. **Đọc và phân tích lỗi trên GitHub Actions:**
+   - Lên lại tab **Actions** trên trình duyệt. Bạn sẽ thấy một tiến trình mới vừa chạy và lập tức bị đánh dấu **X màu đỏ (Failed)**.
+   - Bấm vào tên tiến trình đó, mở rộng phần log của bước **Build with Maven (Test and Package)**.
+   - Khi đọc log, bạn sẽ tìm thấy lỗi báo: `expected: <true> but was: <false>`, kèm theo thông báo file bắt được lỗi chính là `OrderProcessorTest.java`. Điều này cực kỳ quan trọng vì nó chứng minh hệ thống CI đã tự động "tóm gọn" được lỗi do lập trình viên lỡ tay gây ra trước khi ứng dụng được mang đi triển khai!
+4. **Sửa lại cho đúng (Fix bug):**
+   - Quay về IDE, sửa `false` lại thành `true`.
+   - Chạy lại các lệnh `git add`, `git commit -m "Sua loi test"`, `git push` để đẩy bản vá lỗi (hotfix) lên.
+   - Lên GitHub xem lại, tiến trình bảo vệ sẽ đánh giá code đã an toàn và hiện Xanh lá trở lại! 🎉
 
 ---
 *Bằng cách làm theo luồng bài tập này, bạn không chỉ code xong chức năng mà còn áp dụng đúng chuẩn làm việc của quy trình phát triển phần mềm chuyên nghiệp hiện nay (Code -> Tự động Test -> Tự động Build -> Cảnh báo lỗi).*
