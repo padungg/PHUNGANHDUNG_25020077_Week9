@@ -1,18 +1,19 @@
 package com.fileservice;
 
 import org.junit.jupiter.api.Test;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PathTest {
     @Test
     public void testWindowsHardcodedPath() {
-        String folder = "config";
-        String fileName = "app.properties";
+        // Lấy đường dẫn chuẩn theo hệ điều hành hiện tại
+        Path path = Paths.get("config", "app.properties");
         
-        // LỖI SAI: Hardcode dấu phân cách của riêng Windows (\)
-        String fullPath = folder + "\\" + fileName; 
-        
-        // Code này chỉ PASS trên Windows, sẽ FAILED trên Linux/Mac
-        assertEquals("config\\app.properties", fullPath);
+        // LỖI SAI: So sánh với một chuỗi bị đóng cứng theo kiểu Windows (\)
+        // Dòng này sẽ PASS trên Windows (vì path.toString() ra config\app.properties)
+        // Nhưng sẽ FAILED trên Linux/Mac (vì path.toString() ra config/app.properties)
+        assertEquals("config\\app.properties", path.toString());
     }
 }
