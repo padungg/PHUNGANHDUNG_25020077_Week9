@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82cb3fcb-8aa1-45b0-a587-f276ef2a247c" name="Changes" comment="" />
+    <list default="true" id="82cb3fcb-8aa1-45b0-a587-f276ef2a247c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,8 +20,14 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Bai02" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "padungg"
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/padungg/PHUNGANHDUNG_25020077_Week9.git",
@@ -93,7 +101,7 @@
       <workItem from="1777310279859" duration="2866000" />
       <workItem from="1777314267812" duration="358000" />
       <workItem from="1777314650682" duration="642000" />
-      <workItem from="1777362124541" duration="2035000" />
+      <workItem from="1777362124541" duration="2356000" />
     </task>
     <servers />
   </component>
