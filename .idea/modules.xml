@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Bai1.1/Bai1.1.iml" filepath="$PROJECT_DIR$/Bai1.1/Bai1.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai1.2/Bai1.2.iml" filepath="$PROJECT_DIR$/Bai1.2/Bai1.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai1.3/Bai1.3.iml" filepath="$PROJECT_DIR$/Bai1.3/Bai1.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai1.4/Bai1.4.iml" filepath="$PROJECT_DIR$/Bai1.4/Bai1.4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai1.5/Bai1.5.iml" filepath="$PROJECT_DIR$/Bai1.5/Bai1.5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai2.1/Bai2.1.iml" filepath="$PROJECT_DIR$/Bai2.1/Bai2.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai2.2/Bai2.2.iml" filepath="$PROJECT_DIR$/Bai2.2/Bai2.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai2.3/Bai2.3.iml" filepath="$PROJECT_DIR$/Bai2.3/Bai2.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai2.4/Bai2.4.iml" filepath="$PROJECT_DIR$/Bai2.4/Bai2.4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai2.5/Bai2.5.iml" filepath="$PROJECT_DIR$/Bai2.5/Bai2.5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PHUNGANHDUNG_25020077_Week8.iml" filepath="$PROJECT_DIR$/.idea/PHUNGANHDUNG_25020077_Week8.iml" />
+    </modules>
+  </component>
+</project>
