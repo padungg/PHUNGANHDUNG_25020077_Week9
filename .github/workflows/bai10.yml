@@ -1,0 +1,20 @@
+name: Bai 10 - Broken Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          
+      - name: Build with Maven
+        # Dùng working-directory: ./Bai10 nhưng vì không checkout code nên thư mục này không tồn tại
+        run: mvn package
+        working-directory: ./Bai10
