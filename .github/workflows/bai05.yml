@@ -1,0 +1,33 @@
+name: Bai 05 - JaCoCo Coverage
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+        
+    - name: Run Tests and Check Coverage
+      run: mvn -B verify
+      working-directory: ./Bai05
+      
+    - name: Upload JaCoCo Coverage Report
+      uses: actions/upload-artifact@v4
+      if: always() # Luôn luôn upload báo cáo kể cả khi build bị fail do Coverage thấp
+      with:
+        name: jacoco-report
+        path: Bai05/target/site/jacoco/
+        retention-days: 5
